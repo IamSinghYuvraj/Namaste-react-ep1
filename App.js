@@ -1,4 +1,17 @@
-const parent = React.createElement("h1", {
+const heading = document.createElement("h1"); //Create an Element 
+heading.innerHTML = "Hello World from Javascript!!"
+const jsparent = document.getElementById("jsHeading");
+jsparent.appendChild(heading)
+
+const reactheading = React.createElement("h1", {
+     id: "heading",
+     abc: "xyz"
+}, "Hello World using React!!!");
+const reactroot = ReactDOM.createRoot(document.getElementById("reactroot"));
+ reactroot.render(reactheading); 
+
+
+const reactparent = React.createElement("h1", {    //nested react elements 
     id: "parent"
 }, [React.createElement("h1", {
     id: "child"
@@ -6,9 +19,9 @@ const parent = React.createElement("h1", {
     id: "child2"
 }, [React.createElement("h1", {}, "This is an h1 tag"), React.createElement("h2", {}, "This is an h2 tag"), 
 ]), 
-]);
+]); 
 
 
-const root = ReactDOM.createRoot(document.getElementById("root")); //step 2: create an root element to put rood id of html
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent); //step 3:render the root by putting heading inside it
+root.render(reactparent); //Use root render .
